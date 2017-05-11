@@ -2,22 +2,30 @@
 <html>
 <head>
 <meta charset="UTF-8"> 
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
 <!-- build:css assets/styles/styles.css -->
 <link rel="stylesheet" href="temp/assets/styles/styles.css">
 <!-- endBuild -->
 <script src="https://code.createjs.com/easeljs-0.8.2.min.js"></script>
 <script src="https://code.createjs.com/tweenjs-0.6.2.min.js"></script>
 <script src="https://code.createjs.com/preloadjs-0.6.2.min.js"></script>
+<script src="assets/scripts/vendor/CCapture.all.min.js"></script>
+<script src="assets/scripts/vendor/download.js"></script>
+<script src="assets/scripts/vendor/gif.js"></script>
+<script src="assets/scripts/vendor/gif.worker.js"></script>
 <!-- build:js assets/scripts/app.js -->
 <script src="assets/scripts/app.js"></script>
 <!-- endBuild -->
-<title>HTML 5 Freelance test</title>
+<title>Banner Giffer</title>
 </head>
 <body>
+<header class="app-header">Banner Giffer</header>
+<main class="wrapper">
+<div class="banner-box">
 <canvas id="banner" width="300" height="250" class="banner">
-
-
-  <!-- create your canvas here -->
   </canvas>
+  </div>
+  <button class="btn" id="generate-gif-btn">Start capture</button>
+  </main>
 </body>
 </html>

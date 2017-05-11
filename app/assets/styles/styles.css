@@ -11,15 +11,70 @@
 
 /* Styles */
 html {
-	background: #222;
+	background: #A5C8CE;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	font-family: 'open sans', arial, sans-serif;
+}
+
+.app-header {
+	font-size: 1.75em;
+	margin-bottom: 100px;
+	font-family: inherit;
+	font-weight: bold;	
+	padding: 1em;
+	border: solid 4px black;
+	margin-left: 0;
 }
 
 .banner {
-	position: absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
+
 	margin:auto;
+	margin-bottom: -3px;
 	background: #fff;
+
 }
+
+.wrapper {
+	display: flex;
+	justify-content: space-between;
+	width: 600px;
+	height: auto;
+}
+
+.banner-box {
+	border: dotted 2px black;
+	padding: 6px;
+	height: auto;
+}
+
+.btn {
+	padding: 1em;
+	width: 180px;
+	font-size: 1rem;
+background: #ee0979;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #ff6a00, #ee0979);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #ff6a00, #ee0979); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background-repeat: repeat;
+		box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+	color: #fff;
+	font-weight: bold;
+	border-radius: 6px;
+	height: auto;
+	margin: auto;
+	cursor: pointer;
+	transition: all 0.3s;
+	font-family: inherit;
+}
+
+.btn:hover {
+			box-shadow: 0 2px 10px rgba(0, 0, 0, .4);
+}
+
+

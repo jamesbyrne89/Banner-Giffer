@@ -1,4 +1,6 @@
-// JavaScript Document
+/**
+ * Banner code
+ */
 window.onload = function() {
     console.log("Junior developer test.");
 
@@ -20,8 +22,10 @@ window.onload = function() {
     var backgroundEnd;
     var bounce;
     var sheen;
+    var stage;
+    var banner = document.getElementById('banner');
     // store a reference to the canvas which we will draw on.
-    var stage = new createjs.Stage("banner");
+    stage = new createjs.Stage("banner");
 
     // register the stage to handle mouse events. 
     stage.enableMouseOver(10);
@@ -113,7 +117,6 @@ window.onload = function() {
     }
 
     function drawTheBannerBackground() {
-        console.log("draw and animate the background.");
 
         // provide the loader result for the item with id == 'background'
         // as a bitmap which will be stored in our background variable.
@@ -137,7 +140,6 @@ window.onload = function() {
     }
 
     function frame1() {
-        console.log("draw and animate frame one.");
 
         skyLogo = new createjs.Bitmap(loader.getResult("skyLogo"));
         frameOneTextPrimary = new createjs.Bitmap(loader.getResult("frameOneTextPrimary"));
@@ -199,7 +201,6 @@ window.onload = function() {
     }
 
     function frame2() {
-        console.log("draw and animate frame two.");
         stamp = new createjs.Bitmap(loader.getResult("stamp"));
         frameTwoTextPrimary = new createjs.Bitmap(loader.getResult("frameTwoTextPrimary"));
         grabber = new createjs.Bitmap(loader.getResult("grabber"));
@@ -279,7 +280,6 @@ window.onload = function() {
     }
 
     function frame3() {
-        console.log("draw and animate frame three.");
 
         backgroundEnd = new createjs.Bitmap(loader.getResult("backgroundEnd"));
         skyLogo = new createjs.Bitmap(loader.getResult("skyLogo"));
@@ -379,5 +379,55 @@ window.onload = function() {
             }, 1000)
         // refer to the creative brief, frame 3 for guidance.
     }
+
+
+
+
+/**
+ * Code to generate the GIF goes here
+ */
+const startBtn = document.getElementById('generate-gif-btn')
+let started = false;
+
+var capture = new CCapture({
+  format: 'gif',
+  framerate: 60,
+  workersPath: 'assets/scripts/vendor/',
+  quality: 10,
+  verbose: false
+});
+
+capture.capture(stage);
+
+function render(){
+    requestAnimationFrame(render);
+    // rendering stuff ...
+    capture.capture(banner);
+}
+
+render()
+
+function callback () {
+      
+}
+
+startBtn.addEventListener('click', function(){
+    console.log(!started);
+if (!started) {
+  capture.start();
+  started = true;
+  startBtn.innerText = 'Stop capture'
+ console.log('Capture begins');   
+}
+else {
+    capture.stop();
+    started = false;
+    startBtn.innerText = 'Capturing...'
+    console.log('Capturing. Please wait...')
+  capture.save();
+  startBtn.innerText = 'Start capture'; 
+
+}
+});
 
 };
