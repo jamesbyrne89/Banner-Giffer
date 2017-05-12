@@ -5,24 +5,11 @@ window.onload = function() {
     console.log("Junior developer test.");
 
     // declare your variables here.
-    var background;
-    var skyLogo;
-    var frameOneTextPrimary;
-    var frameOneTextSecondary;
-    var mAndS;
-    var samsung;
-    var frameTwoTextPrimary;
-    var grabber;
-    var frameTwoTerms;
-    var CTA;
-    var frameThreeTextPrimary;
-    var frameThreeTextSecondary;
-    var frameThreeTerms;
-    var frameThreeTextTertiary;
-    var backgroundEnd;
-    var bounce;
-    var sheen;
-    var stage;
+    var background, skyLogo, frameOneTextPrimary, frameOneTextSecondary,
+    mAndS, samsung, frameTwoTextPrimary, grabber, frameTwoTerms, CTA,
+    frameThreeTextPrimary, frameThreeTextSecondary, frameThreeTerms,
+    frameThreeTextTertiary, backgroundEnd, bounce, sheen, stage;
+
     var banner = document.getElementById('banner');
     // store a reference to the canvas which we will draw on.
     stage = new createjs.Stage("banner");
@@ -386,12 +373,12 @@ window.onload = function() {
 /**
  * Code to generate the GIF goes here
  */
-const startBtn = document.getElementById('generate-gif-btn')
+const startStopBtn = document.getElementById('generate-gif-btn')
 let started = false;
 
 var capture = new CCapture({
   format: 'gif',
-  framerate: 60,
+  framerate: 30,
   workersPath: 'assets/scripts/vendor/',
   quality: 10,
   verbose: false
@@ -411,21 +398,21 @@ function callback () {
       
 }
 
-startBtn.addEventListener('click', function(){
+startStopBtn.addEventListener('click', function(){
     console.log(!started);
 if (!started) {
   capture.start();
   started = true;
-  startBtn.innerText = 'Stop capture'
+  startStopBtn.innerText = 'Stop capture'
  console.log('Capture begins');   
 }
 else {
     capture.stop();
     started = false;
-    startBtn.innerText = 'Capturing...'
+    startStopBtn.innerText = 'Capturing...'
     console.log('Capturing. Please wait...')
   capture.save();
-  startBtn.innerText = 'Start capture'; 
+  startStopBtn.innerText = 'Start capture'; 
 
 }
 });
